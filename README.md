@@ -1,54 +1,54 @@
-# RAGxplorer
+# RAGxplorer 🦙🦺
 
-RAGxplorer is an interactive tool for visualizing document chunks in the embedding space, designed to diagnose and explore applications of the Retriever-Answer Generator (RAG) model.
+[![PyPI version](https://img.shields.io/pypi/v/ragxplorer.svg)](https://pypi.org/project/ragxplorer/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ragxplorer.streamlit.app/)
 
-## Overview
+<img src="https://raw.githubusercontent.com/gabrielchua/RAGxplorer/main/images/logo.png" width="200">
 
-RAGxplorer allows users to upload documents, convert them into chunked formats suitable for RAG applications, and visualize these chunks in an embedding space. This visualization aids in understanding how different chunks relate to each other and to specific queries, thereby providing insights into the workings of RAG-based systems.
+RAGxplorer is a tool to build Retrieval Augmented Generation (RAG) visualisations.
 
-## Features
+# Quick Start ⚡
 
-- **Document Upload**: Users can upload PDF documents that they wish to analyze.
-- **Chunk Configuration**: Options to configure the chunk size and overlap, offering flexibility in how the document is processed.
-- **Vector Database Creation**: Builds a vector database from the uploaded document for efficient retrieval and visualization.
-- **Query Expansion**: Generates sub-questions and hypothetical answers to enhance the retrieval process.
-- **Interactive Visualization**: Utilizes Plotly for dynamic and informative visual representations of the data.
-
-## Modules
-
-- **app.py**: Main Streamlit application file, integrating all components and functionalities.
-- **constants.py**: Contains constant values and explanatory texts, especially regarding document chunking.
-- **plots.py**: Handles the plotting of data, leveraging Plotly for interactive visualization.
-- **query_expansion.py**: Manages query expansion, generating sub-questions and hypothetical answers.
-- **rag_utils.py**: Includes utility functions specific to the RAG model, such as building vector databases and handling text splitting.
-- **ui.py**: Manages user interface elements of the Streamlit app, focusing on layout and presentation.
-- **utils.py**: General utility functions assisting in session state initialization and data frame preparation.
-
-## Installation
-
-To run RAGxplorer, ensure you have Python installed, and then install the necessary dependencies:
+**Installation**
 
 ```bash
-pip install -r requirements.txt
+pip install ragxplorer
 ```
 
-## Usage
+**Usage**
 
-To start the application, run:
-
-```bash
-streamlit run app.py
+```python
+from ragxplorer import RAGxplorer
+client = RAGxplorer(embedding_model="thenlper/gte-large")
+client.load_pdf("presentation.pdf", verbose=True)
+client.visualize_query("What are the top revenue drivers for Microsoft?")
 ```
 
-Navigate to the URL provided by Streamlit to interact with the application.
+A quickstart Jupyter notebook tutorial on how to use `ragxplorer` can be found at <https://github.com/gabrielchua/RAGxplorer/blob/main/tutorials/quickstart.ipynb>
 
-## Contributing
+Or as a Colab notebook:
 
-Contributions to RAGxplorer are welcome. Please read our contributing guidelines for details on our code of conduct and the process for submitting pull requests.
-License
+<a target="_blank" href="https://colab.research.google.com/github/vince-lam/RAGxplorer/blob/issue29-create-tutorials/tutorials/quickstart.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
-This project is licensed under the MIT license - see the LICENSE file for details.
+# Streamlit Demo 🔎
 
-## Acknowledgments
-- DeepLearning.AI and Chroma for the inspiration and foundational code.
+The demo can be found here: <https://ragxplorer.streamlit.app/>
+
+<img src="https://raw.githubusercontent.com/gabrielchua/RAGxplorer/main/images/example.png" width="650">
+
+View the project [here](https://github.com/gabrielchua/RAGxplorer-demo)
+
+# Contributing 👋
+
+Contributions to RAGxplorer are welcome. Please read our [contributing guidelines (WIP)](.github/CONTRIBUTING.md) for details.
+
+# License 👀
+
+This project is licensed under the MIT license - see the [LICENSE](LICENSE) for details.
+
+# Acknowledgments 💙
+
+- DeepLearning.AI and Chroma for the inspiration and code labs in their [Advanced Retrival](https://www.deeplearning.ai/short-courses/advanced-retrieval-for-ai/) course.
 - The Streamlit community for the support and resources.
